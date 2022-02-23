@@ -87,21 +87,33 @@ ul {
     padding: 1rem;
 }
 
+figcaption :hover {
+    background-color: var(--main-bisque);
+}
+
+
 #contact {
     text-align: center;
     background-color: var(--main-lightblue);
     font-size: xx-large;
     padding: 4rem;
+    text-decoration: none;
+    color: white;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    
+    color: white;
 }
 
 .contact-links a{
     padding: 3rem;
+    color: white;
+}
+
+.contact-links a:hover {
+    color: var(--main-bisque)
 }
 
 footer {
