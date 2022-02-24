@@ -48,3 +48,35 @@ let secondElement = myArray2[1]; // retreive the item at the 1 or second positio
 myArray.length;  // the length property of an array is very handy
 
 let lastItem = myArray2[myArray2.length - 1];
+
+// Objects
+
+let minObject = {}; //the most minimal object possible
+
+let myCar = { //objects are made of properties which are key:value pairs
+    make: 'Chevrolet' ,
+    color: 'Green',
+    year: '1964',
+    vin: '123456789123456987'
+}
+
+myCar.numDoors = 4; //a new property can be simply added to an existing object using dot notation
+
+const anotherObject = { //onjects can contain just about anything, including arrays, other objects, etc. 
+    wordz : ['foo', 'bar', 'baz'],
+    car: {
+        make: 'McLaren',
+        model: '720s',
+    },
+    awesomeness: true
+}
+
+// Functions
+
+function myFunction() {  // this is a named function definition
+    return "My Greeting to you is what I return to you!" //deosnt do much only returns a string
+}
+
+function sumTwoThings(thingOne, thingTwo) {
+    return thingOne + thingTwo;
+}
