@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+figure {
+    margin: .5rem;
+}
+
+
+figure img {
+    max-height: 20rem;
+}
