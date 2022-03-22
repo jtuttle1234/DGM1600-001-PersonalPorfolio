@@ -44,4 +44,6 @@ function populateDOM(characters) {
     personFig.appendChild(personCap);
     main.appendChild(personFig);
   });
-}
+} 
+
+populateDOM(people)
