@@ -11,3 +11,12 @@ figure {
 figure img {
     max-height: 20rem;
 }
+
+button {
+    width: 10rem;
+    height: 3rem;
+    margin : 1rem;
+    background-color: blue;
+    color: aliceblue;
+    font-size: large;
+} 

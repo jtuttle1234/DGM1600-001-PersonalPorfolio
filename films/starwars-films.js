@@ -1,15 +1,5 @@
 import { films } from '../data/films.js'
-
-
-function getLastNumber(url) {
-    // 'https://swapi.co/api/films/1/
-    const secondToLastLetter = url[url.length - 2]
-    return secondToLastLetter // just the number that comes before the last forward slash
-}
-
-console.log(getLastNumber('https://swapi.co/api/films/1/'))
-
-console.log('Hello Console!')
+import { getLastNumber } from '../utils/index.js'
 
 //Third, use a variable to store a reference to the main element with an id attribute of filmlist
 let filmList = document.querySelector('#filmList')
