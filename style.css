@@ -91,9 +91,6 @@ ul {
 }
 
 
-figcaption :hover {
-    background-color: var(--main-bisque);
-}
 
 
 #contact {
@@ -141,7 +138,14 @@ figcaption {
     color: white;
     border-radius: .5rem;
     font-size: 1.5rem;
+    padding: .5rem;
 }
+
+figcaption:hover {
+    background-color: var(--main-lightblue);
+    color: black;
+}
+
 
 .contact-details {
     transition: transform 0.3s ease-out;
