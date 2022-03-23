@@ -1,23 +1,82 @@
+* {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: yellow;
+  font-family: "Abril Fatface", cursive;
+  font-family: "Prompt", sans-serif;
+  background-color: black;
+  margin: 0;
+  position:fixed;
+  width: 100vw;
+}
+
+header {
+  text-align: center;
+  background-color: yellow;
+  font-family: "Abril Fatface", cursive;
+  font-family: "Prompt", sans-serif;
+  position: fixed;
+  width: 100vw;
+  margin-top: 3.5rem;
+  margin-bottom: 10rem;
+}
+
 main {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  margin: 0;
+  justify-content: center;
+  font-family: "Abril Fatface", cursive;
+  font-family: "Prompt", sans-serif;
+  margin:;
 }
 
 figure {
-    margin: .5rem;
+  margin: 3rem;
+  align-items: center;
+  text-align: center;
+  font-family: "Abril Fatface", cursive;
+  font-family: "Prompt", sans-serif;
+ margin-top: 10rem;
 }
 
-
 figure img {
-    max-height: 20rem;
+  max-height: 20rem;
+}
+
+figcaption {
+  color: black;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.541);
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
 
 button {
-    width: 10rem;
-    height: 3rem;
-    margin : 1rem;
-    background-color: blue;
-    color: aliceblue;
-    font-size: large;
-} 
+  width: 16rem;
+  height: 3rem;
+  margin: 1rem;
+  background-color: black;
+  color: aliceblue;
+  font-size: large;
+  font-family: "Abril Fatface", cursive;
+  font-family: "Prompt", sans-serif;
+}
 
+button:hover {
+  background-color: rgb(71, 71, 71);
+  border-radius: 2rem;
+  width: 17rem;
+  height: 4rem;
+}
+
+
+footer {
+  padding: 4rem;
+  background-color: yellow;
+}
