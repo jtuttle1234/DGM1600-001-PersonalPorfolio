@@ -109,5 +109,10 @@ const filmPlusMore = filmURLs.map((filmURL) => {
 const pilotNames = pilots.map(pilot => pilot.name) // new array just contains pilots names
 
 
-// ternary operator syntax: condition ? exprIfTrue :
-exprIfFalse
+// ternary operator syntax: condition ? exprIfTrue : expIfFalse
+
+const totalYears = swpilots.reduce((acc, pilot) => acc + pilot.years, 0) // total years should === 82
+
+const mostExpPilot = swpilots.reduce((oldest, pilot) => {
+  return (oldest.years || 0) > pilot.years ? oldest : pilot
+}, )
