@@ -4,12 +4,28 @@
     box-sizing: border-box;
 }
 
+h1 {
+    color: white;
+    font-size: 8rem;
+    text-align: center;
+}
+
 body {
     background-color: #222222;
 }
 
 .mainContainer {
     display: flex;
+}
+
+.shipViewer {
+    display:flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.shipViewer img {
+    padding: 5rem;
 }
 
 .box {
