@@ -1,5 +1,6 @@
 import { senators } from "../data/senators.js";
 import { representatives } from "../data/representatives.js";
+import { removeChildren } from "../utils/index.js";
 
 const allCongressMembers = [...senators, ...representatives] //modern way to combine arrays. like a genius
 
@@ -28,7 +29,7 @@ function simplifiedSenators() {
 const simpleSenators = simplifiedSenators();
 
 function populateSenatorDiv(simpleSenators) {
- 
+ removeChildren(senatorDiv)
   simpleSenators.forEach((senator) => {
     const senFigure = document.createElement("figure");
     const figImg = document.createElement("img");
@@ -82,6 +83,13 @@ const femaleSenators = simpleSenators.filter((senator) => {
   }
 })
 
+const repulicans = simpleSenators.filter((senator) => {
+
+  if (senator.party === "R") {
+    return senator;
+  }
+})
+
 const maleSenator = simpleSenators.filter((senator) => {
 
   if (senator.gender === "M") {
@@ -89,14 +97,19 @@ const maleSenator = simpleSenators.filter((senator) => {
   }
 })
 
+//all header buttons
+
 const femaleSenatorsButton = document.createElement('button')
 femaleSenatorsButton.textContent = "Female Senators";
 femaleSenatorsButton.addEventListener("click", () => populateSenatorDiv(femaleSenators))
 const maleSenatorsButton = document.createElement('button')
 maleSenatorsButton.textContent = "Male Senators"
 maleSenatorsButton.addEventListener("click", () => populateSenatorDiv(maleSenator))
+const allSenatorsButton = document.createElement('button')
+allSenatorsButton.textContent = "All Senators";
+allSenatorsButton.addEventListener('click', () => populateSenatorDiv(simpleSenators))
 
-
+header.appendChild(allSenatorsButton);
 header.appendChild(femaleSenatorsButton);
 header.appendChild(maleSenatorsButton);
 
