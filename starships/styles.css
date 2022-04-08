@@ -11,6 +11,8 @@ h1 {
     text-align: center;
     font-family: "Abril Fatface", cursive;
     font-family: "Prompt", sans-serif;
+    background-image: linear-gradient(yellow,black);
+    text-shadow: 10px 10px 10px black;
 }
 
 body {
@@ -39,16 +41,18 @@ li a:hover {
     display:flex;
     justify-content: center;
     height: 100vh;
+    margin-left: 1rem;
 }
 
 .shipViewer img {
-    padding: 5rem;
+    padding: 0rem;
     border-radius: 1rem;
     box-shadow: 0px 0px 10px yellow;
+    margin: 5rem;
 }
 
 .box {
-    background-color: bisque;
+    background-color: yellow;
     font-size: xx-large;
     text-align: center;
 }
@@ -66,4 +70,11 @@ a {
     text-decoration: none;
     color: white;
     font-size: x-large;
+}
+
+footer {
+    background-color: yellow;
+    padding: 1rem;
+    text-align: center;
+    color: black;
 }

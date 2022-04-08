@@ -6,6 +6,7 @@ const allCongressMembers = [...senators, ...representatives] //modern way to com
 const senatorDiv = document.querySelector(".senatorsDiv");
 const seniorityHeading = document.querySelector(".seniority");
 const loyaltyList = document.querySelector(".loyaltyList");
+const header = document.querySelector("header")
 function simplifiedSenators() {
   return senators.map((senator) => {
     const middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `;
@@ -22,24 +23,27 @@ function simplifiedSenators() {
   });
 }
 
+
+
 const simpleSenators = simplifiedSenators();
 
 function populateSenatorDiv(simpleSenators) {
+ 
   simpleSenators.forEach((senator) => {
     const senFigure = document.createElement("figure");
     const figImg = document.createElement("img");
     const figCaption = document.createElement("figcaption");
 
     figImg.src = senator.imgURL;
-    figCaption.textContent = senator.name;
-
+    figCaption.textContent = senator.name, senator.party;
+    
     senFigure.appendChild(figImg);
     senFigure.appendChild(figCaption);
     senatorDiv.appendChild(senFigure);
   });
 }
 
-populateSenatorDiv(simpleSenators);
+
 
 // simpleSenators.forEach...
 //create figure and figcaption elements
@@ -52,6 +56,9 @@ const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => {
 
 seniorityHeading.textContent = `The most Senior Member of the Senate is ${mostSeniorMember.name}`;
 
+
+
+
 simplifiedSenators().forEach((senator) => {
   if (senator.loyaltyPct === 100) {
     let listItem = document.createElement("li");
@@ -60,12 +67,6 @@ simplifiedSenators().forEach((senator) => {
   }
 });
 
-// TODO:
-// Some sort of Ui for sorting by party affiliation? or by party and gender? with a count
-// much better styling of the grid of senators and their names
-// include more data with each congress member such as their party, or links to thier twitter or facebook pages
-// incorporate a way to select the members of the house of representatives
-
 const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) =>
   acc.missedVotesPct > senator.missedVotesPct ? acc : senator
 );
@@ -73,3 +74,30 @@ const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) =>
 const biggestVacationerList = simplifiedSenators().filter(
   (senator) => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct
 ).map(senator => senator.name).join(' and ');
+
+const femaleSenators = simpleSenators.filter((senator) => {
+
+  if (senator.gender === "F") {
+    return senator;
+  }
+})
+
+const maleSenator = simpleSenators.filter((senator) => {
+
+  if (senator.gender === "M") {
+    return senator;
+  }
+})
+
+const femaleSenatorsButton = document.createElement('button')
+femaleSenatorsButton.textContent = "Female Senators";
+femaleSenatorsButton.addEventListener("click", () => populateSenatorDiv(femaleSenators))
+const maleSenatorsButton = document.createElement('button')
+maleSenatorsButton.textContent = "Male Senators"
+maleSenatorsButton.addEventListener("click", () => populateSenatorDiv(maleSenator))
+
+
+header.appendChild(femaleSenatorsButton);
+header.appendChild(maleSenatorsButton);
+
+populateSenatorDiv(simpleSenators);

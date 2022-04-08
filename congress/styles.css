@@ -4,7 +4,91 @@
     box-sizing: border-box;
 }
 
+header {
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    background-color: red;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+font-family: 'Prompt', sans-serif;
+}
+
+figure.wrapped {
+   float: right;
+}
+
+figure.wrapped img {
+    width: 500px;
+    height: auto;
+}
+
+figure.wrapped figcaption {
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+}
+
 .senatorsDiv {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
+
+.senatorsDiv figure {
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.senatorsDiv img {
+    border-radius: 1rem;
+}
+
+.senatorsDiv img:hover {
+    box-shadow: 0px 0px 10px black;
+}
+
+.senatorsDiv figcaption {
+    color: white;
+    text-align: center;
+}
+
+.loyaltyList {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.seniority {
+    display: flex;
+    color:black;
+    font-size: 2rem;
+    background-color: rgba(128, 128, 128, 0.066);
+}
+
+main {
+    background-color: navy;
+}
+
+button {
+    background-color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: 6px solid navy;
+    font-family: 'Abril Fatface', cursive;
+font-family: 'Prompt', sans-serif;
+font-size: 2rem;
+margin: .5rem;
+}
+
+button:hover {
+    background-color: navy; 
+    color: white;
+    border-color: black;
+
+}
+
