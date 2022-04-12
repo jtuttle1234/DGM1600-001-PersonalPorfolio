@@ -20,6 +20,9 @@ font-family: 'Prompt', sans-serif;
 
 figure.wrapped {
    float: right;
+   margin: 1rem;
+   margin-right: 15rem;
+   margin-top: 5rem;
 }
 
 figure.wrapped img {
@@ -40,7 +43,7 @@ figure.wrapped figcaption {
 }
 
 .senatorsDiv figure {
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 1rem;
 }
 
@@ -55,12 +58,14 @@ figure.wrapped figcaption {
 .senatorsDiv figcaption {
     color: white;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .loyaltyList {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    font-size: 1.5rem;
 }
 
 .seniority {
@@ -68,6 +73,7 @@ figure.wrapped figcaption {
     color:black;
     font-size: 2rem;
     background-color: rgba(128, 128, 128, 0.066);
+    font-size: 2rem;
 }
 
 main {
@@ -75,20 +81,23 @@ main {
 }
 
 button {
-    background-color: white;
+   
+    background-color: navy; 
+    color: white; 
     padding: 1rem;
     border-radius: .5rem;
     border: 6px solid navy;
     font-family: 'Abril Fatface', cursive;
 font-family: 'Prompt', sans-serif;
 font-size: 2rem;
-margin: .5rem;
+margin-left: 5rem;
+
 }
 
 button:hover {
-    background-color: navy; 
-    color: white;
-    border-color: black;
+    background-color: white; 
+    color: navy;
+    border-color: red;
 
 }
 
