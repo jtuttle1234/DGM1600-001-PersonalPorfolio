@@ -34,9 +34,19 @@ populateNav()
 
 function populateShipView (shipData) {
  removeChildren(shipViewer)
- const shipImage = document.createElement('img')
+ const shipFig = document.createElement("figure")
+ const figImg = document.createElement("img")
+ const figCaption = document.createElement("figcaption")
  let shipNum = getLastNumber(shipData.url)
- shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`
+figImg.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`;
+figCaption.src = shipData.name;
+ 
+shipFig.appendChild(figImg);
+shipFig.appendChild(figCaption);
+shipViewer.appendChild(shipFig);
+
+
+ 
 
  shipImage.addEventListener('error', () => {
      console.log('we got an error')
@@ -45,5 +55,5 @@ function populateShipView (shipData) {
      shipMessage.textContent = `The ship known as as "${shipData.name}", is in for repairs.`
  } )
 
- shipViewer.appendChild(shipImage)
+ shipViewer.appendChild(figImg)
 }

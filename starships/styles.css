@@ -52,9 +52,10 @@ li a:hover {
 }
 
 .box {
-    background-color: yellow;
+    background-image: url(/starships/images/space-galaxy-2.jpg);
     font-size: xx-large;
     text-align: center;
+    color: white;
 }
 
 .nav {
