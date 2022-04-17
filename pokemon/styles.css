@@ -41,7 +41,7 @@ position: relative;
 }
 
   .back {
-      background-color: blue;
+      background-color: rgb(140, 140, 146);
       transform: rotateY(180deg);
   }
 

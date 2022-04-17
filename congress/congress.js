@@ -90,6 +90,13 @@ const repulicans = simpleSenators.filter((senator) => {
   }
 })
 
+const democrats = simpleSenators.filter((senator) => {
+
+  if (senator.party === "D") {
+    return senator;
+  }
+})
+
 const maleSenator = simpleSenators.filter((senator) => {
 
   if (senator.gender === "M") {
@@ -108,9 +115,18 @@ maleSenatorsButton.addEventListener("click", () => populateSenatorDiv(maleSenato
 const allSenatorsButton = document.createElement('button')
 allSenatorsButton.textContent = "All Senators";
 allSenatorsButton.addEventListener('click', () => populateSenatorDiv(simpleSenators))
+const republicanButton = document.createElement('button')
+republicanButton.textContent = "Republicans"
+republicanButton.addEventListener('click', () => populateSenatorDiv(repulicans))
+const democratsButton = document.createElement('button')
+democratsButton.textContent = "Democrats"
+democratsButton.addEventListener('click', () => populateSenatorDiv(democrats))
+
 
 header.appendChild(allSenatorsButton);
 header.appendChild(femaleSenatorsButton);
 header.appendChild(maleSenatorsButton);
+header.appendChild(republicanButton);
+header.appendChild(democratsButton)
 
 populateSenatorDiv(simpleSenators);
