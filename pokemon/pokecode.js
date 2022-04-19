@@ -7,13 +7,25 @@ const getAPIData = async (url) => {
   }
 };
 
+const loadedPokemon = []
+
 async function loadPokemon(offset = 0, limit = 25) {
   const pokeData = await getAPIData(
     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}  `
   );
   for (const nameAndUrl of pokeData.results) {
-    const pokemon = await getAPIData(nameAndUrl.url);
-    populatePokeCard(pokemon);
+    const pokemon = await getAPIData(nameAndUrl.url)
+    const simplifiedPokemon = {
+      id: pokemon.id,
+      height: pokemon.height,
+      weight: pokemon.weight,
+      name: pokemon.name,
+      types: pokemon.types,
+      abilities: pokemon.abilities,
+      moves: pokemon.moves.slice(0, 3)
+    }
+    loadedPokemon.push(simplifiedPokemon)
+    populatePokeCard(simplifiedPokemon);
   }
 }
 
@@ -65,7 +77,7 @@ function makeAbilitiesArray(commaString) {
 function makeTypesArray(spacedString) {
   return spacedString.split(' ').map((typeName) => {
     return {
-      type: { name: typeName}
+      types: { name: typeName}
     }
   })
 }
@@ -98,6 +110,11 @@ function populatePokeCard(pokemon) {
 function populateCardFront(pokemon) {
   const pokeFront = document.createElement("figure");
   pokeFront.className = "cardFace front";
+
+  const pokeType1 = pokemon.types[0].type.name
+  getPokeTypeColor(pokeType1)
+  pokeFront.style.setProperty('background', getPokeTypeColor(pokeType1))
+
   const pokeImg = document.createElement("img");
   if (pokemon.id > 9000) {
     // load local image
@@ -105,6 +122,7 @@ function populateCardFront(pokemon) {
   } else {
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
   }
+
   const pokeCaption = document.createElement("figcaption");
   pokeCaption.textContent = pokemon.name;
 
@@ -130,4 +148,18 @@ function populateCardBack(pokemon) {
   return pokeBack;
 }
 
-loadPokemon();
+function getPokeTypeColor(pokeTypes) {
+  let color 
+  switch (pokeTypes) {
+    case 'grass':
+      color = '#00FF00'
+      break
+  }
+  return color
+}
+
+ await loadPokemon();
+
+function getPokemonByType(type) {
+  return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
+}
