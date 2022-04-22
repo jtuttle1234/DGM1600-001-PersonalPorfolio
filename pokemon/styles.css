@@ -3,17 +3,63 @@
     box-sizing: border-box;
 }
 
+h1 {
+    padding: 5rem;
+    text-align: center;
+    background-color:rgb(239, 94, 94);
+    font-size: 8rem;
+    color:white;
+    font-family: 'Pokemon Solid', sans-serif;
+}
+h4 {
+    margin: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+header {
+    padding: 1rem;
+    margin: 0rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+font-size: 2rem;
+}
+
+button {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    font-size: 1rem;
+    margin-left: 2rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: rgb(239, 94, 94);
+    color: white;
+}
+
 .pokeGrid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
-
 
 .scene {
 width: 200px;
 height: 260px;
 margin: .5em;
 perspective: 600px;
+text-transform: capitalize;
+border-radius: 1rem;
+}
+
+.front:hover {
+    box-shadow: 0px 0px 20px black;
+    border-radius: 1rem;
 }
 
 .card {
@@ -32,17 +78,27 @@ position: relative;
     backface-visibility: hidden;
 }
 
+
+
 .card.is-flipped {
     transform: rotateY(180deg);
-  }
+}
+
 
 .front {
-    background-color: aqua;
+    background-color: grey;
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    
 }
 
   .back {
-      background-color: rgb(140, 140, 146);
+      background-color: rgb(227, 227, 227);
       transform: rotateY(180deg);
+      border-radius: 1rem;
   }
 
 figure img {
@@ -50,5 +106,14 @@ figure img {
     height: 200px;
 }
 
+figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: '* ';
+}
 
 
