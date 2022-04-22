@@ -11,7 +11,7 @@ const getAPIData = async (url) => {
 
 const loadedPokemon = [];
 
-async function loadPokemon(offset = 0, limit = 200) {
+async function loadPokemon(offset = 0, limit = 40) {
   const pokeData = await getAPIData(
     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}  `
   );
