@@ -12,9 +12,10 @@ h1 {
     font-family: 'Pokemon Solid', sans-serif;
 }
 h4 {
-    margin: 1rem;
+    margin: .5rem;
     text-align: center;
     font-size: 1.2rem;
+    font-family: 'Akshar', sans-serif;
 }
 
 header {
@@ -96,7 +97,7 @@ position: relative;
 }
 
   .back {
-      background-color: rgb(227, 227, 227);
+      
       transform: rotateY(180deg);
       border-radius: 1rem;
   }
@@ -114,6 +115,7 @@ figure {
 
 ul {
     list-style-type: '* ';
+    font-family: 'Akshar', sans-serif;
 }
 
 

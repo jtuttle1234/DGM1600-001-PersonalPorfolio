@@ -134,6 +134,8 @@ function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
   pokeBack.className = "cardFace back";
 
+  
+
 ///// ABILITY LIST AREA //////
   const label = document.createElement("h4");
   label.textContent = "Abilities";
@@ -160,6 +162,11 @@ const typeLabel = document.createElement("h4")
   });
   pokeBack.appendChild(typeList)
   ;
+  const pokeBackBorder = document.createElement("figure");
+  pokeBackBorder.className = "cardFace back";
+  const pokeType1 = pokemon.types[0].type.name;
+  getPokeTypeColor(pokeType1);
+  pokeBackBorder.style.setProperty("background", getPokeTypeColor(pokeType1));
   return pokeBack;
 }
 
