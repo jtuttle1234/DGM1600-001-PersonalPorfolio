@@ -37,7 +37,7 @@ class Pokemon {
     this.id = 9001;
     (this.name = name),
       (this.height = height),
-      (this.weigh = weight),
+      (this.weight = weight),
       (this.abilities = abilities),
       (this.types = types);
   }
@@ -59,7 +59,7 @@ const newButton = document.createElement('button')
 newButton.textContent = 'New Pokemon'
 headers.appendChild(newButton)
 newButton.addEventListener('click', () => {
-  const pokeName = prompt('What is the name of your new Pokemon?', 'Thoremon')
+  const pokeName = prompt('What is the name of your new Pokemon?', 'Enter Name Here')
   const pokeHeight = prompt("What is the Pokemon's height?", 20)
   const pokeWeight = prompt("What is the Pokemon's weight?", 1000)
   const pokeAbilities = prompt(
@@ -68,6 +68,9 @@ newButton.addEventListener('click', () => {
   const pokeTypes = prompt(
     "What are your Pokemon's types? (up to 2 types separated by a space)",
   )
+  const pokeMoves = prompt(
+    "What are your Pokemon's moves? (up to 3 moves seperated by a space)"
+  )
   // need to also collect 3 moves from the user to put into my moves property
   const newPokemon = new Pokemon(
     pokeName,
@@ -75,9 +78,10 @@ newButton.addEventListener('click', () => {
     pokeWeight,
     makeAbilitiesArray(pokeAbilities),
     makeTypesArray(pokeTypes),
+    makeMovesArray(pokeMoves)
     // need to get an array of moves added here
   )
-  //console.log(newPokemon)
+  
   populatePokeCard(newPokemon)
 })
 
@@ -95,6 +99,14 @@ function makeTypesArray(spacedString) {
       type: { name: typeName },
     };
   });
+}
+
+function makeMovesArray(commaString2) {
+  return commaString2.split(" ").map((moveName) => {
+    return {
+      moves: { name: moveName}
+    }
+  })
 }
 
 const pokeGrid = document.querySelector(".pokeGrid");
