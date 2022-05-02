@@ -33,13 +33,14 @@ async function loadPokemon(offset = 0, limit = 40) {
 }
 
 class Pokemon {
-  constructor(name, height, weight, abilities, types) {
+  constructor(name, height, weight, abilities, types, moves) {
     this.id = 9001;
     (this.name = name),
       (this.height = height),
       (this.weight = weight),
       (this.abilities = abilities),
       (this.types = types);
+      (this.moves = moves);
   }
 }
 
@@ -71,15 +72,14 @@ newButton.addEventListener('click', () => {
   const pokeMoves = prompt(
     "What are your Pokemon's moves? (up to 3 moves seperated by a space)"
   )
-  // need to also collect 3 moves from the user to put into my moves property
+  
   const newPokemon = new Pokemon(
     pokeName,
     pokeHeight,
     pokeWeight,
     makeAbilitiesArray(pokeAbilities),
     makeTypesArray(pokeTypes),
-    makeMovesArray(pokeMoves)
-    // need to get an array of moves added here
+    makeMovesArray(pokeMoves),
   )
   
   populatePokeCard(newPokemon)
@@ -101,8 +101,8 @@ function makeTypesArray(spacedString) {
   });
 }
 
-function makeMovesArray(commaString2) {
-  return commaString2.split(" ").map((moveName) => {
+function makeMovesArray(commaString) {
+  return commaString.split(" ").map((moveName) => {
     return {
       moves: { name: moveName}
     }
