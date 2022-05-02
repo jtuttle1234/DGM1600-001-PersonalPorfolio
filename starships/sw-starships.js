@@ -39,7 +39,7 @@ function populateShipView (shipData) {
  const figCaption = document.createElement("figcaption")
  let shipNum = getLastNumber(shipData.url)
 figImg.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`;
-figCaption.src = shipData.name;
+figCaption.textContent =  `Ship: ${shipData.name}` ;
  
 shipFig.appendChild(figImg);
 shipFig.appendChild(figCaption);
@@ -48,12 +48,29 @@ shipViewer.appendChild(shipFig);
 
  
 
- shipImage.addEventListener('error', () => {
+ figImg.addEventListener('error', () => {
      console.log('we got an error')
-     shipImage.hidden = true;
+     figImg.hidden = true;
      modal.classList.toggle('is-active')
      shipMessage.textContent = `The ship known as as "${shipData.name}", is in for repairs.`
  } )
 
- shipViewer.appendChild(figImg)
+//  shipViewer.appendChild(figImg)
 }
+
+// function populateShipView(shipData) {
+//     removeChildren(shipViewer)
+  
+//     const shipImage = document.createElement('img')
+//     let shipNum = getLastNumber(shipData.url)
+//     shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`
+//     shipImage.addEventListener('error', () => {
+//       console.log("Image error!!!!!!")
+//       shipImage.hidden = true
+//       shipMessage.textContent = `The ship known as ${shipData.name} is currently in space port for repairs.`
+//       modal.classList.toggle('is-active')
+//     })
+  
+//     shipViewer.appendChild(shipImage)
+  
+//   }
