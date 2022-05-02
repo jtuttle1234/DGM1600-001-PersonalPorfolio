@@ -83,6 +83,7 @@ newButton.addEventListener('click', () => {
   )
   
   populatePokeCard(newPokemon)
+
 })
 
 function makeAbilitiesArray(commaString) {
@@ -104,7 +105,7 @@ function makeTypesArray(spacedString) {
 function makeMovesArray(commaString2) {
   return commaString2.split(" ").map((moveName) => {
     return {
-      moves: { name: moveName}
+      move: { name: moveName}
     }
   })
 }
