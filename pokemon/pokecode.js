@@ -101,8 +101,8 @@ function makeTypesArray(spacedString) {
   });
 }
 
-function makeMovesArray(commaString) {
-  return commaString.split(" ").map((moveName) => {
+function makeMovesArray(commaString2) {
+  return commaString2.split(" ").map((moveName) => {
     return {
       moves: { name: moveName}
     }
