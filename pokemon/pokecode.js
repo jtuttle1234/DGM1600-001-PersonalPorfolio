@@ -1,4 +1,5 @@
-import { getLastNumber, removeChildren } from "../utils/index.js";
+import { getLastNumber } from "../utils/index.js";
+import { removeChildren } from "../utils/index.js";
 
 const getAPIData = async (url) => {
   try {
@@ -42,31 +43,43 @@ class Pokemon {
   }
 }
 
-const newButton = document.createElement("button");
-newButton.textContent = "NEW POKEMON";
-const header = document.querySelector("header");
-header.appendChild(newButton);
-newButton.addEventListener("click", () => {
-  const pokeName = prompt("what is the name of your new Pokemon?", "Thoremon");
-  const pokeHeight = prompt("what is the Pokemons height?", 20);
-  const pokeWeight = prompt("what is the pokemons weight?", 1000);
-  const pokeAbilities = prompt(
-    "what is the pokemons abilities? (use a comma-seperated list"
-  );
-  const pokeTypes = prompt(
-    "What are your Pokemons types? (up to 2 types seperated by a space)"
-  );
+const headers = document.querySelector('header')
+const loadButton = document.createElement('button')
+loadButton.textContent = 'Load Pokemon'
+headers.appendChild(loadButton)
+loadButton.addEventListener('click', async () => {
+  if (loadedPokemon.length === 0) {
+    removeChildren(pokeGrid)
+    await loadPokemon(0, 50)
+  }
+})
 
+
+const newButton = document.createElement('button')
+newButton.textContent = 'New Pokemon'
+headers.appendChild(newButton)
+newButton.addEventListener('click', () => {
+  const pokeName = prompt('What is the name of your new Pokemon?', 'Thoremon')
+  const pokeHeight = prompt("What is the Pokemon's height?", 20)
+  const pokeWeight = prompt("What is the Pokemon's weight?", 1000)
+  const pokeAbilities = prompt(
+    "What are your Pokemon's abilities? (use a comman-separated list)",
+  )
+  const pokeTypes = prompt(
+    "What are your Pokemon's types? (up to 2 types separated by a space)",
+  )
+  // need to also collect 3 moves from the user to put into my moves property
   const newPokemon = new Pokemon(
     pokeName,
     pokeHeight,
     pokeWeight,
     makeAbilitiesArray(pokeAbilities),
-    makeTypesArray(pokeTypes)
-  );
-  console.log(newPokemon);
-  populatePokeCard(newPokemon);
-});
+    makeTypesArray(pokeTypes),
+    // need to get an array of moves added here
+  )
+  //console.log(newPokemon)
+  populatePokeCard(newPokemon)
+})
 
 function makeAbilitiesArray(commaString) {
   return commaString.split(",").map((abilityName) => {
@@ -86,10 +99,7 @@ function makeTypesArray(spacedString) {
 
 const pokeGrid = document.querySelector(".pokeGrid");
 
-// function populatePokeGrid(pokemonArray) {
-//  // loop through all the pokemon and create individual pokeCards
-//  console.log(pokemonArray.results)
-// }
+
 
 function populatePokeCard(pokemon) {
   const pokeScene = document.createElement("div");
@@ -156,17 +166,27 @@ const typeLabel = document.createElement("h4")
     const typeListItem = document.createElement("li")
       typeListItem.textContent = typeItem.type.name;
       typeList.appendChild(typeListItem)
-
-
-
   });
   pokeBack.appendChild(typeList)
   ;
+  ///////MOVES LIST AREA////////////////////////////
+  const movesLabel = document.createElement("h4")
+  movesLabel.textContent = "Moves"
+  pokeBack.appendChild(movesLabel);
+  const moveList = document.createElement("ul")
+  pokemon.moves.forEach ((moveItem) => {
+    const moveListItem = document.createElement("li")
+      moveListItem.textContent = moveItem.move.name;
+      moveList.appendChild(moveListItem)
+  });
+  pokeBack.appendChild(moveList);
+
+
+
   const pokeBackBorder = document.createElement("figure");
-  pokeBackBorder.className = "cardFace back";
-  const pokeType1 = pokemon.types[0].type.name;
-  getPokeTypeColor(pokeType1);
-  pokeBackBorder.style.setProperty("background", getPokeTypeColor(pokeType1));
+  const pokeType2 = pokemon.types[0].type.name;
+  getPokeTypeColor(pokeType2);
+  pokeBack.style.setProperty("color", getPokeTypeColor(pokeType2));
   return pokeBack;
 }
 
@@ -227,8 +247,25 @@ function getPokeTypeColor(pokeTypes) {
   return color;
 }
 
-await loadPokemon();
+
 
 function getPokemonByType(type) {
-  return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type);
+  return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
 }
+// now figure out how to display this count in the UI
+const typeSelector = document.querySelector('#type-select')
+typeSelector.addEventListener('change', (event) => {
+  removeChildren(pokeGrid) // cleared out the grid from all pokemon
+  const usersTypeChoice = event.target.value.toLowerCase()
+  if (event.target.value === 'Show All Pokemon') {
+    loadedPokemon.forEach((singleLoadedPokemon) =>
+      populatePokeCard(singleLoadedPokemon),
+    )
+  } else {
+    const pokemonByType = getPokemonByType(usersTypeChoice)
+    // now just loop through the filtered array and populate
+    pokemonByType.forEach((eachSinglePokemon) =>
+      populatePokeCard(eachSinglePokemon),
+    )
+  }
+})

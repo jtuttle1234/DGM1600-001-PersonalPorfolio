@@ -14,7 +14,7 @@ h1 {
 h4 {
     margin: .5rem;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'Akshar', sans-serif;
 }
 
@@ -58,9 +58,14 @@ text-transform: capitalize;
 border-radius: 1rem;
 }
 
+
+
 .front:hover {
-    box-shadow: 0px 0px 20px black;
+    box-shadow: 0px 0px 25px black;
     border-radius: 1rem;
+    border: solid 2px black;
+    margin: .5rem;
+    
 }
 
 .card {
@@ -71,6 +76,8 @@ transition: transform 1s;
 transform-style: preserve-3d;
 position: relative;
 }
+
+
 
 .cardFace {
     width: 100%;
@@ -97,9 +104,10 @@ position: relative;
 }
 
   .back {
-      
+      border: 5px solid ;
       transform: rotateY(180deg);
       border-radius: 1rem;
+      background-color: rgba(128, 128, 128, 0.203);
   }
 
 figure img {
@@ -118,4 +126,14 @@ ul {
     font-family: 'Akshar', sans-serif;
 }
 
+select {
+    padding: 1rem;
+    font-family: 'Akshar', sans-serif;
+    font-size: 2rem;
+    border-radius: 1rem;
+}
 
+select:hover {
+    background-color: rgb(239, 94, 94);
+    color: white;
+}
